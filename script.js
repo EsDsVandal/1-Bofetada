@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const distance = targetDate - now;
 
         if (distance < 0) {
-            countdownElement.innerHTML = "Manu, preparate que te van a dar un guantazo";
+            countdownElement.innerHTML = "Manu, prepárate";
             return;
         }
 
