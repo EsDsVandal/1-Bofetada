@@ -1,22 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     const backgroundMusic = document.getElementById('background-music');
-
-    // Intentar reproducir la música automáticamente
     const playPromise = backgroundMusic.play();
 
     if (playPromise !== undefined) {
         playPromise.then(() => {
-            // Reproducción automática exitosa
             console.log("Reproducción automática de música iniciada.");
         }).catch(error => {
-            // La reproducción automática fue bloqueada
             console.log("La reproducción automática fue bloqueada.", error);
-
-            // Función para reproducir la música tras una interacción del usuario
             const iniciarMusica = () => {
                 backgroundMusic.play().then(() => {
                     console.log("Música reproducida tras la interacción del usuario.");
-                    // Remover los listeners después de reproducir la música
                     document.removeEventListener('click', iniciarMusica);
                     document.removeEventListener('keydown', iniciarMusica);
                 }).catch(err => {
@@ -24,13 +17,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             };
 
-            // Agregar listeners para eventos de interacción del usuario
             document.addEventListener('click', iniciarMusica);
             document.addEventListener('keydown', iniciarMusica);
         });
     }
 
-    // Configurar el volumen de la música de fondo al 50%
     backgroundMusic.volume = 0.5;
 
     const countdownElement = document.getElementById('countdown');
