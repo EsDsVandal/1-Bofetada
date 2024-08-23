@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Intentamos reproducir la música de fondo
+    const backgroundMusic = document.getElementById('background-music');
+    
+    // Intenta reproducir la música cuando la página esté cargada
+    backgroundMusic.play().catch(function(error) {
+        console.log("La reproducción automática fue bloqueada, se necesita una interacción del usuario.");
+    });
+    
+    // Configurar el volumen de la música de fondo al 50%
+    backgroundMusic.volume = 0.5;
+
     const countdownElement = document.getElementById('countdown');
-    const targetDate = new Date('September 15, 2024 20:00:00').getTime();
+    const targetDate = new Date('September 14, 2024 20:00:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
